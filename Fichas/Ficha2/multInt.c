@@ -1,14 +1,14 @@
 #include <stdio.h>
 #include <math.h>
 
-//Exercicio 1
+//Exercise 1
 float multInt1(int n, float m){
     float r = 0;
     for(r = 0; n > 0; n--) r += m;
     return r;
 }
 
-//Exercicio 2
+//Exercise 2.1
 float multInt2(int n, float m){
     float r = 0;
     while(n >= 1){
@@ -19,13 +19,13 @@ float multInt2(int n, float m){
     return r;
 }
 
-//Exercicio 3
+//Exercise 2.2
 float multInt3 (int n, float m, int *count){
     float r = 0;
     while(n >= 1){
         if (n % 2 != 0){
             r += m;
-            *count += 1;                   // count -> contagem de operações com floats
+            *count += 1;             // count -> It counts the number of float operations!
         }
         m *= 2;
         n /= 2;

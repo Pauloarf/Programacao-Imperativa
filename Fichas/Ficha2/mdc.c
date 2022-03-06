@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <math.h>
 
-//Exercicio 1
+//Exercise 3
 int mdc1(int a, int b){
     int c;
     if(a < b){
@@ -30,8 +30,8 @@ int mdc2(int a, int b){
 }
 */
 
-// Exercicio 2
-int mdc2(int a, int b){         //menos steps
+// Exercise 4
+int mdc2(int a, int b){
     int c = 0;
     do{
         while(a <= b && a > 0) b -= a;
@@ -42,22 +42,23 @@ int mdc2(int a, int b){         //menos steps
     return c;
 }
 
-int mdc2_(int a, int b){        //mais steps
-    int c;
-    while(b != 0 && a != 0){
-        if(a <= b) b -= a;
-        if(b <= a) a -= b;
-    }
+int mdc3 (int a, int b, int *count){
+    int c = 0;
+    do{
+        while(a <= b && a > 0) b -= a, *count += 1;
+        while(b <= a && b > 0) a -= b, *count += 1; 
+    }while(b > 0 && a > 0);
     if (a == 0) c = b; 
     else if(b == 0) c = a;
     return c;
 }
 
-int mdc4(int a, int b){         //menos iterações
+// Exercise 5
+int mdc4(int a, int b, int *count){
     int c = 0;
     do{
-        while(a <= b && a > 0) b %= a;
-        while(b <= a && b > 0) a %= b; 
+        while(a <= b && a > 0) b %= a, *count += 1;
+        while(b <= a && b > 0) a %= b, *count += 1; 
     }while(b > 0 && a > 0);
     if (a == 0) c = b; 
     else if(b == 0) c = a;
