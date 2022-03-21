@@ -2,8 +2,8 @@
 #include "mdc.c"
 #include "fib.c"
 
-int main()
-{  int a,b,r1,r2,r3,r4, 
+int main(){
+   int a,b,r1,r2,r3,r4, 
        c1=0, c2=0;
    float f, f1, f2, f3;
     

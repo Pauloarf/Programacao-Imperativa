@@ -15,21 +15,6 @@ int mdc1(int a, int b){
     return c;
 }
 
-/* (brandão)
-int mdc2(int a, int b){
-    int c = 0;
-    do{
-        while(a <= b && a > 0) b = b - a;
-        while(a <= b && a > 0) a = a - b; 
-        if(b <= 0 || a <= 0){ 
-            if (a == 0) c = b; 
-            else if(b == 0) c = a;
-            return c;
-        }
-    } while(1);
-}
-*/
-
 // Exercise 4
 int mdc2(int a, int b){
     int c = 0;
