@@ -6,6 +6,7 @@ int isVocal(char a){
     else return 0;
 }
 
+// Exercise 1
 int contaVogais (char *s) {
     int c;
     for(int i = 0; s[i] != '\0'; i++){
@@ -14,6 +15,7 @@ int contaVogais (char *s) {
     return c;
 }
 
+// Exercise 2
 int retiraVogaisRep (char *s){
     int c, i = 0;
     while(s[i] != '\0'){
@@ -48,6 +50,7 @@ int duplicaVogais2 (char *s){
     return c;
 }
 
+// Exercise 3
 int duplicaVogais (char *s){
     int c, i;
     int aux = 1;

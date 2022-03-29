@@ -10,6 +10,7 @@ void simNao (int x){
     if (!x) printf (" nao");
 }
 
+// Exercise 1
 int ordenado (int a[], int N){
     for(int i = 0; i < N-1; i++){
         if(a[i] > a[i+1]) return 0;
@@ -17,6 +18,7 @@ int ordenado (int a[], int N){
     return 1;
 }
 
+// Exercise 2
 void merge (int a[], int na, int b[], int nb, int r[]){
     int j = 0, x = 0, y = 0;
     while(x+y < na + nb){
@@ -33,6 +35,7 @@ void merge (int a[], int na, int b[], int nb, int r[]){
     }
 }
 
+// Exercise 3
 int partition (int v[], int N, int x){
     int i = 0, aux = 0, c = 0;
     while(i < N){
