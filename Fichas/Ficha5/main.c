@@ -16,8 +16,8 @@ int main(){
     
     ordenaPorNum (Turma1, 7);
 
-    // printf ("procura 5555: %d \n", procuraNum (5555, Turma1, 7));
-    // printf ("procura 9999:%d \n", procuraNum (9999, Turma1, 7));
+    printf ("procura 5555: %d \n", procuraNum (5555, Turma1, 7));
+    printf ("procura 9999:%d \n", procuraNum (9999, Turma1, 7));
 
     for (i=0; i<7; imprimeAluno (Turma1 + i++));
     

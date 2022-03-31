@@ -48,3 +48,11 @@ void ordenaPorNum(Aluno t[], int N){
         }
     }
 }
+
+//Exercise 4
+void criaIndPorNum(Aluno t[], int N, int ind[]){
+    for(int i = 0; i < N, i++){
+        
+    }
+
+}
