@@ -4,6 +4,7 @@
 void dumpV(int v[], int N){
     int i;
     for ( i = 0; i < N; i++) printf ("%d ", v[i]);
+    printf("\n");
 }
 
 //Exercise 1
@@ -60,7 +61,31 @@ void criaIndPorNum(Aluno t[], int N, int ind[]){
     }
 }
 
-/*Exercise 5*/
-void imprimeTurma(int ind[], Aluno t[], int N){
-    
+//Exercise 5
+void imprimeTurmaInd(int ind[], Aluno t[], int N){
+    for(int i = 0; i < N; i++){
+        for(int j = 0; j < N; j++){
+            if(i == ind[j]) imprimeAluno(t + j);
+        }
+    }
+}
+
+//Exercise 6
+int procuraNumInd(int num, int ind[], Aluno t[], int N){
+    for(int i = 0; i < N; i++){
+        int aux = ind[i];
+        if(t[aux].numero == num) return aux;
+    }
+    return -1;
+}
+
+//Exercise 7
+void criaIndPorNome(Aluno t[], int N, int ind[]){
+    for(int i = 0; i < N; i++){
+        int aux = 0;
+        for(int j = 0; j < N; j++){
+            if(t[i].nome[0] > t[j].nome[0]) aux++;  //Not working well if the 1's letter is the same :3
+        }
+        ind[i] = aux;
+    }
 }

@@ -18,18 +18,20 @@ int main(){
 
     printf ("procura 5555: %d \n", procuraNum (5555, Turma1, 7));
     printf ("procura 9999:%d \n", procuraNum (9999, Turma1, 7));
-
+    
     for (i=0; i<7; imprimeAluno (Turma1 + i++));
-    
+    printf("\n");
+
     criaIndPorNum (Turma1, 7, indNum); dumpV(indNum,7);
-    
-    //criaIndPorNome (Turma1, 7, indNome);
+    imprimeTurmaInd (indNum, Turma1, 7);
+    printf("\n");
 
-    // imprimeTurmaInd (indNum, Turma1, 7);
-    // imprimeTurmaInd (indNome, Turma1, 7);
+    criaIndPorNome (Turma1, 7, indNome); dumpV(indNome,7);
+    imprimeTurmaInd (indNome, Turma1, 7);
+    printf("\n");
 
-    // printf ("procura 5555:%d \n",  procuraNumInd (5555, indNum, Turma1, 7));
-    // printf ("procura 9999:%d \n",  procuraNumInd (9999, indNum, Turma1, 7));
+    printf ("procura 5555:%d \n",  procuraNumInd(5555, indNum, Turma1, 7));
+    printf ("procura 9999:%d \n",  procuraNumInd(9999, indNum, Turma1, 7));
 
     printf ("\n---------- Fim dos Testes ----------\n");
     
