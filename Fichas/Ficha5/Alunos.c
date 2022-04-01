@@ -51,8 +51,16 @@ void ordenaPorNum(Aluno t[], int N){
 
 //Exercise 4
 void criaIndPorNum(Aluno t[], int N, int ind[]){
-    for(int i = 0; i < N, i++){
-        
+    for(int i = 0; i < N; i++){
+        int aux = 0;
+        for(int j = 0; j < N; j++){
+            if(t[i].numero > t[j].numero) aux++;
+        }
+        ind[i] = aux;
     }
+}
 
+/*Exercise 5*/
+void imprimeTurma(int ind[], Aluno t[], int N){
+    
 }

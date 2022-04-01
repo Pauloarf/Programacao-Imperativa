@@ -21,9 +21,9 @@ int main(){
 
     for (i=0; i<7; imprimeAluno (Turma1 + i++));
     
-    // criaIndPorNum (Turma1, 7, indNum);
+    criaIndPorNum (Turma1, 7, indNum); dumpV(indNum,7);
     
-    // criaIndPorNome (Turma1, 7, indNome);
+    //criaIndPorNome (Turma1, 7, indNome);
 
     // imprimeTurmaInd (indNum, Turma1, 7);
     // imprimeTurmaInd (indNome, Turma1, 7);
