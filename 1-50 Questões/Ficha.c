@@ -6,7 +6,7 @@
 
 #define MAX 70 //Max array size
 
-/* This funtion removes the s[n] char from the s array*/
+/* This function removes the s[n] char from the s array*/
 void rmChar(char s[], int n){
     for(int i = n+1; s[i] != '\0'; i++, n++){
         s[n] = s[i];
@@ -51,7 +51,7 @@ int trailingZ(unsigned int n){
     return r;
 }
 
-/* This funtion outputs the number n in base 2 (binary)*/
+/* This function outputs the number n in base 2 (binary)*/
 void showBinary(unsigned int n){
     int size = 0, m;
 	for	(m = n; m > 0; m >>= 1) size++;
@@ -104,7 +104,7 @@ int myStrcmp(char s1[], char s2[]){
     return 0;
 }
 
-/* This funtion returns where the s1 pointer starts if s2 happens inside s1*/
+/* This function returns where the s1 pointer starts if s2 happens inside s1*/
 char *myStrstr(char s1[], char s2[]){
     int i;
     char a = 1;
@@ -148,7 +148,7 @@ void myStrnoV(char s[]){
     }
 }
 
-/* This funtion makes words in t[], at max, n characters long. The words will be separated by spaces*/
+/* This function makes words in t[], at max, n characters long. The words will be separated by spaces*/
 void truncW (char t[], int n){
     int i, j = 0;
     for(i = 0; t[i] != '\0'; i++){
@@ -184,7 +184,7 @@ char charMaisfreq(char s[]){
     return aux;
 }
 
-/* This funtion give us the number of elements, of the largest sub-string with iqual consecutive charectares*/
+/* This function give us the number of elements, of the largest sub-string with iqual consecutive charectares*/
 int iguaisConsecutivos(char s[]){
     int i, max = 0, aux = 1;
     for(i = 0; s[i] != '\0'; i++){
@@ -195,17 +195,29 @@ int iguaisConsecutivos(char s[]){
     return max;
 }
 
-/* This funtion give us the number of elements, of the largest sub-string with diferent consecutive charectares*/  
+/* This function returns true if the value k is already in the string s*/
+int pertence(char s[], int i, int j){
+    for(; i < j; i++){
+        if(s[i] == s[j]) return 1;
+    }
+    return 0;
+}
+
+/* This function give us the number of elements, of the largest sub-string with diferent consecutive charectares*/  
 int difConsecutivos(char s[]){
-    int i, max = 0, aux = 1;
+    int i, j, aux, max = 0;
     for(i = 0; s[i] != '\0'; i++){
-        if(s[i] != s[i+1]) aux++;
+        aux = 0;
+        for(j = i; s[j] != '\0'; j++){
+            if(pertence(s, i, j))break;
+            else aux++;
+        }
         if(aux > max) max = aux;
-        if(s[i] == s[i+1]) aux = 1;
     }
     return max;
 }
 
+/* This function returns the lenght of the biggest commun prefix from the strings*/
 int maiorPrefixo (char s1 [], char s2 []) {
     int aux = 0;
     int i, j;
@@ -219,6 +231,9 @@ int maiorPrefixo (char s1 [], char s2 []) {
     }
     return aux;
 }
+
+/* This function returns the lenght of the biggest commun sufix from the strings*/
+
 
 int main(){
     char s1[MAX] = "tentei, e no fim ";
