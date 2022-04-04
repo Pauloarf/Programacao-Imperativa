@@ -1,8 +1,25 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <limits.h>
+#include <assert.h>
 
 #define MAX 70 //Max array size
+
+/* This funtion removes the s[n] char from the s array*/
+void rmChar(char s[], int n){
+    for(int i = n+1; s[i] != '\0'; i++, n++){
+        s[n] = s[i];
+    }
+    s[n] = '\0';
+}
+
+/* This function returns 1(true) if a is a vocal, and returns 0(false) if it is not*/
+int isVocal(char a){
+    if (a == 'a' ||a == 'e' ||a == 'i' ||a == 'o' ||a == 'u'
+        ||a == 'A' ||a == 'E' ||a == 'I' ||a == 'O' ||a == 'U') return 1;
+    else return 0;
+}
 
 /* This function prints the content of an array*/
 void dumpV(char v[]){
@@ -29,7 +46,8 @@ int trailingZ(unsigned int n){
     while(n > 0){
         if(n % 2 == 0)r +=1, n /= 2;
         else break;
-    } 
+    }
+    if(n == 0)r = 32;
     return r;
 }
 
@@ -44,9 +62,9 @@ void showBinary(unsigned int n){
 
 /* This function returns de number of digits of number n*/
 int qDig(unsigned int n){
-    int r;
+    int r = 0;
     while(n > 0){
-        r += 1;
+        r++;
         n /= 10;
     }
     return r;
@@ -104,7 +122,102 @@ char *myStrstr(char s1[], char s2[]){
             }
         }
     }
+    if(s2[0] == '\0') return s1;
     return NULL;
+}
+
+/*  This function inverts a string*/
+void myStrrev(char s[]){
+    int i, j;
+    char aux[MAX];
+    for(i = 0; s[i] != '\0'; i++){
+        aux[i] = s[i];
+    }
+    i -= 1;
+    for(j = 0; i >= 0; j++, i--){
+        s[j] = aux[i];
+    }
+    s[j] = '\0';
+}
+
+/* This function removes the voals from a string*/
+void myStrnoV(char s[]){
+    for(int i = 0; s[i] != '\0';){
+        if(isVocal(s[i])) rmChar(s, i);
+        else i++;
+    }
+}
+
+/* This funtion makes words in t[], at max, n characters long. The words will be separated by spaces*/
+void truncW (char t[], int n){
+    int i, j = 0;
+    for(i = 0; t[i] != '\0'; i++){
+        if(n == 0)break;
+        if(t[i] == ' ') j = 0;
+        else j++;
+        if(j == n){
+            while(t[i+1] != ' ' && t[i+1] != '\0'){
+                if(t[i+1] != ' ')rmChar(t, i+1);
+                else i++;
+            }
+        }
+    }
+    i = 0;
+    if(n == 0)while(t[i] != '\0'){
+        if(t[i] != ' ')rmChar(t, i);
+        else i++;
+    }
+}
+
+/* This function returns the most frequent charecter in a string*/
+char charMaisfreq(char s[]){
+    int i, j;
+    int max = 0, maybe = 0;
+    char aux = '0';
+    for(i = 0; s[i] != '\0'; i++){
+        for(j = 0; s[j] != '\0'; j++){
+            if(s[i] == s[j]) maybe++;
+        }
+        if(maybe > max) max = maybe, aux = s[i];
+        maybe = 0;
+    }
+    return aux;
+}
+
+/* This funtion give us the number of elements, of the largest sub-string with iqual consecutive charectares*/
+int iguaisConsecutivos(char s[]){
+    int i, max = 0, aux = 1;
+    for(i = 0; s[i] != '\0'; i++){
+        if(s[i] == s[i+1]) aux++;
+        if(aux > max) max = aux;
+        if(s[i] != s[i+1]) aux = 1;
+    }
+    return max;
+}
+
+/* This funtion give us the number of elements, of the largest sub-string with diferent consecutive charectares*/  
+int difConsecutivos(char s[]){
+    int i, max = 0, aux = 1;
+    for(i = 0; s[i] != '\0'; i++){
+        if(s[i] != s[i+1]) aux++;
+        if(aux > max) max = aux;
+        if(s[i] == s[i+1]) aux = 1;
+    }
+    return max;
+}
+
+int maiorPrefixo (char s1 [], char s2 []) {
+    int aux = 0;
+    int i, j;
+    for(i = 0; (s1[i] != '\0') && (s2[i] != '\0'); i++){
+        if(s1[i] != s2[i]){
+            do{
+                i++;
+            }while((s1[i] != ' ') && (s2[i] != ' '));
+        }
+        if(s1[i] == s2[i]) aux++;
+    }
+    return aux;
 }
 
 int main(){
@@ -143,4 +256,28 @@ int main(){
     printf("\n\nstrstr de "); dumpV(ss2); 
     printf("e         "); dumpV(ss1);
     printf("e igual a {%s}",myStrstr(ss1,ss2));
+
+    printf("\n\nA string "); dumpV(ss1);
+    printf("invertida e igual a: ");
+    myStrrev(ss1); dumpV(ss1);
+
+    printf("\n\nA string "); dumpV(ss1);
+    printf("sem vogais e igual a: ");
+    myStrnoV(ss1); dumpV(ss1);
+
+    char s3[MAX] = "Liberdade, Igualdade Faternidade , test truncs";
+    printf("\n\nA string "); dumpV(s3);
+    printf("apos truncW(4) e: ");
+    myTruncW(s3, 4); dumpV(s3);
+
+    printf("\n\nO carater mais frequente em "); dumpV(s3);
+    printf("e {%c}", charMaisfreq(s3));
+
+    char s4[MAX] = "aabdccccaac";
+    printf("\n\nO comprimento da maior sub-string com caracteres iguais em "); dumpV(s4);
+    printf("e {%d}", iguaisConsecutivos(s4));
+
+    printf("\n\nO comprimento da maior sub-string com caracteres diferentes em "); dumpV(s4);
+    printf("e {%d}", difConsecutivos(s4));
+
 }
