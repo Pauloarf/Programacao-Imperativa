@@ -395,6 +395,182 @@ int maisFreq(int v[], int N){
     return ans;
 }
 
+// Exercise 32
+int maxCresc(int v[], int N){
+    int i, ans = 1, seq = 1;
+    for(i = 1; i < N; i++){
+        if(v[i] >= v[i - 1]){
+            seq++;
+            if(seq > ans) ans = seq;
+        }
+        else seq = 1;
+    }
+    return ans;
+}
+
+// Exercise 33
+int elimRep(int v[], int n){
+    int i, j, pertence;
+    for(i = 0; i < n;){
+        pertence = 0;
+        for(j = 0; j < i; j++){
+            if(v[i] == v[j]) pertence = 1;
+        }
+        if(pertence){
+            for(j = i; j < n; j++){
+                v[j] = v[j+1];
+            }
+            n--;
+        }
+        else i++;
+    }
+    return n;
+}
+
+// Exercise 34
+int elimRepOrd(int v[], int n){
+    int i = 0, j;
+    while(i < n){
+        if(n == 1)break;
+        if(v[i] == v[i+1]){
+            for(j = i; j < n; j++){
+                v[j] = v[j+1];
+            }
+            n--;
+        }
+        else i++;
+    }
+    return n;
+}
+
+// Exercise 35
+int comunsOrd (int a[], int na, int b[], int nb){
+   int j = 0, i = 0, ans = 0;
+   while(i < na && j < nb){
+       if(a[i] == b[j]){
+           ans++;
+           i++;
+           j++;
+       }
+       else if(a[i] > b[j]) j++;
+            else i++;
+   }
+   return ans;
+}
+
+// Exercise 36
+int comuns(int a[], int na, int b[], int nb){
+    int i, j, pertence, ans = 0;
+    for(i = 0; i < na; i++){
+        pertence = 0;
+        for(j = 0; j < nb; j++){
+            if(a[i] == b[j]){
+                ans++;
+                break;
+            }
+        }
+    }
+    return ans;
+}
+
+// Exercise 37
+int minInd(int v[], int n){
+    int i, min = 0;
+    for(i = 0; i < n; i++){
+        if(v[i] < v[min])min = i;
+    }
+    return min;
+}
+
+// Exercise 38
+void somasAc(int v[], int Ac[], int N){
+    int i, soma = 0;
+    for(i = 0; i < N; i++){
+        Ac[i] = soma + v[i];
+        soma += v[i];
+    }
+}
+
+// Exercise 39
+int triSup(int N, float m[N][N]){
+    int i, j;
+    for(i = 0; i < N; i++){
+        for(j = 0; j < i; j++){
+            if(m[i][j] == 0);
+            else return 0;
+        }
+    }
+    return 1;
+}
+
+// Exercise 40
+void transposta(int N, float m[N][N]){
+    int i, j;
+    float aux;
+    for(i = 0; i < N; i++){
+        for(j = 0; j < i; j++){
+            aux = m[i][j];
+            m[i][j] = m[j][i];
+            m[j][i] = aux;
+        }
+    }
+}
+
+// Exercise 41
+void addTo(int N, int M, int a[N][M], int b[N][M]){
+    int i, j;
+    for(i = 0; i < N; i++){
+        for(j = 0; j < M; j++){
+            a[i][j] += b[i][j];
+        }
+    }
+}
+
+// Exercise 42
+int unionSet(int N, int v1[N], int v2[N], int r[N]){
+    int i;
+    for(i = 0; i < N; i++){
+        r[i] = v1[i] || v2[i];      //Duvida
+    }
+    return 0;
+}
+
+// Exercise 43
+int intersectSet(int N, int v1[N], int v2[N], int r[N]){
+    int i;
+    for(i = 0; i < N; i++){
+        r[i] = v1[i] && v2[i];      //Duvida
+    }
+    return 0;
+}
+
+// Exercise 44
+int intersectMSet(int N, int v1[N], int v2[N], int r[N]){
+    int i;
+    for(i = 0; i < N; i++){
+        r[i] = v1[i] < v2[i] ? v1[i] : v2[i];  //Duvida
+    }
+    return 0;
+}
+
+// Exercise 45
+int unionMSet(int N, int v1[N], int v2[N], int r[N]) {
+    int i, len = 0;
+    for(i = 0; i < N; i++) {
+        r[i] = v1[i] + v2[i];         //Duvida
+        len += r[i]; 
+    }
+    return len;
+}
+
+// Exercise 46
+int cardinalMSet(int N, int v[N]){
+    int i, length = 0;
+    for(i = 0; i < N; i++) length += v[i];
+    return length;
+}
+
+
 int main(){
     /*
     A acrescentar no futuro (Para teste das funcoes tem sido usado o codeboard);
