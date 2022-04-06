@@ -360,7 +360,27 @@ int retiraNeg(int v[], int N){
 }
 
 // Exercise 30
-int menosFreq(int v[], int N){
+int menosFreq (int v[], int N) {
+    int i, freq = 1, freqMin = N, ans = v[0];
+    for(i = 1; i < N; i++) {
+        if(v[i] == v[i - 1]) freq++;
+        if(v[i] != v[i - 1]) {
+            if(freq < freqMin) {
+                freqMin = freq;
+                ans = v[i - 1];
+            }
+            freq = 1;
+        }
+    }
+    if(freq < freqMin) {
+        freqMin = freq;
+        ans = v[i - 1];
+    }
+    return ans;
+}
+
+// Exercise 31
+int maisFreq(int v[], int N){
     int i, j, times, aux = 0, ans = v[0];
     for(i = 0; i < N; i++){
         times = 0;
