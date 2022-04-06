@@ -30,7 +30,7 @@ void dumpV(char v[]){
     putchar ('\n');
 }
 
-/* This function returns the number of 1's in the binary representation of n*/
+// Exercise 4
 int bitsUm(unsigned int n){
     int r = 0;
     while(n > 0){
@@ -40,7 +40,7 @@ int bitsUm(unsigned int n){
     return r;
 }
 
-/* This function returns the number of 0's in the end of the binary representation of n*/
+// Exercise 5
 int trailingZ(unsigned int n){
     int r = 0;
     while(n > 0){
@@ -60,7 +60,7 @@ void showBinary(unsigned int n){
     putchar('\n');
 }
 
-/* This function returns de number of digits of number n*/
+// Exercise 6
 int qDig(unsigned int n){
     int r = 0;
     while(n > 0){
@@ -70,7 +70,7 @@ int qDig(unsigned int n){
     return r;
 }
 
-/* This function is my version of the pre-define function *strcat in c*/
+// Exercise 7
 char *myStrcat(char s1[], char s2[]){
     int i, size;
     for(size = 0; s1[size] != '\0'; size++);
@@ -81,7 +81,7 @@ char *myStrcat(char s1[], char s2[]){
     return s1;
 }
 
-/* This function copys the string in source to dest*/
+// Exercise 8
 char *myStrcpy(char *dest, char source[]){
     int i;
     for(i = 0; source[i] != '\0'; i++){
@@ -91,8 +91,7 @@ char *myStrcpy(char *dest, char source[]){
     return dest;
 }
 
-/* This function tests if the strings are the same, otherwise it returns <0 for s1<s2*/
-/*                                                                    or >0 for s1>s2*/
+// Exercise 9
 int myStrcmp(char s1[], char s2[]){
     int i;
     for(i = 0; s1[i] != '\0' && s2[i] != '\0'; i++){
@@ -104,7 +103,7 @@ int myStrcmp(char s1[], char s2[]){
     return 0;
 }
 
-/* This function returns where the s1 pointer starts if s2 happens inside s1*/
+// Exercise 10
 char *myStrstr(char s1[], char s2[]){
     int i;
     char a = 1;
@@ -126,7 +125,7 @@ char *myStrstr(char s1[], char s2[]){
     return NULL;
 }
 
-/*  This function inverts a string*/
+// Exercise 11
 void myStrrev(char s[]){
     int i, j;
     char aux[MAX];
@@ -140,7 +139,7 @@ void myStrrev(char s[]){
     s[j] = '\0';
 }
 
-/* This function removes the voals from a string*/
+// Exercise 12
 void myStrnoV(char s[]){
     for(int i = 0; s[i] != '\0';){
         if(isVocal(s[i])) rmChar(s, i);
@@ -148,7 +147,7 @@ void myStrnoV(char s[]){
     }
 }
 
-/* This function makes words in t[], at max, n characters long. The words will be separated by spaces*/
+// Exercise 13
 void truncW (char t[], int n){
     int i, j = 0;
     for(i = 0; t[i] != '\0'; i++){
@@ -169,7 +168,7 @@ void truncW (char t[], int n){
     }
 }
 
-/* This function returns the most frequent charecter in a string*/
+// Exercise 14
 char charMaisfreq(char s[]){
     int i, j;
     int max = 0, maybe = 0;
@@ -184,7 +183,7 @@ char charMaisfreq(char s[]){
     return aux;
 }
 
-/* This function give us the number of elements, of the largest sub-string with iqual consecutive charectares*/
+// Exercise 15
 int iguaisConsecutivos(char s[]){
     int i, max = 0, aux = 1;
     for(i = 0; s[i] != '\0'; i++){
@@ -203,7 +202,7 @@ int pertence(char s[], int i, int j){
     return 0;
 }
 
-/* This function give us the number of elements, of the largest sub-string with diferent consecutive charectares*/  
+// Exercise 16 
 int difConsecutivos(char s[]){
     int i, j, aux, max = 0;
     for(i = 0; s[i] != '\0'; i++){
@@ -217,82 +216,61 @@ int difConsecutivos(char s[]){
     return max;
 }
 
-/* This function returns the lenght of the biggest commun prefix from the strings*/
+// Exercise 17
 int maiorPrefixo (char s1 [], char s2 []) {
-    int aux = 0;
-    int i, j;
-    for(i = 0; (s1[i] != '\0') && (s2[i] != '\0'); i++){
-        if(s1[i] != s2[i]){
-            do{
-                i++;
-            }while((s1[i] != ' ') && (s2[i] != ' '));
-        }
-        if(s1[i] == s2[i]) aux++;
-    }
-    return aux;
+    int i;
+    for(i = 0; s1[i] == s2[i] && s1[i]; i++);
+    return i;
 }
 
-/* This function returns the lenght of the biggest commun sufix from the strings*/
+// Exercise 18
+int maiorSufixo (char s1 [], char s2 []) {
+    int i, j, ans = -1;
+    for(i = 0; s1[i]; i++);
+    for(j = 0; s2[j]; j++);
+    while(s1[i--] == s2[j--]) ans++;
+    return ans;
+}
+
+// Exercise 19
+int sufPref(char s1[], char s2[]){
+    int i, j, ans = 0;
+    for(i = 0; s1[i]; i++){
+        if(s1[i] == s2[j++]) ans++;
+        else ans = j = 0;
+    }
+    return ans;
+}
+
+// Exercise 20
+int contaPal (char s[]) {
+    int isWord = 0, total = 0;
+    for(int i = 0; s[i]; i++) {
+        if(s[i] == ' ' || s[i] == '\n') {
+            if(isWord) total++;
+            isWord = 0;
+        }
+        else isWord = 1;
+    }
+    if(isWord) total++;
+    return total;
+}
+
+// Exercise 21
+int contaVogais(char s[]){
+    int i, ans = 0;
+    for(i = 0; s[i]; i++){
+        if(isVocal(s[i])) ans++;
+    }
+    return ans;
+}
+
+// Exercise 22º
 
 
 int main(){
-    char s1[MAX] = "tentei, e no fim ";
-    char s2[MAX] = "ate deu";
-    int n, r;
-    char c;
-    
-    printf("Introduza um inteiro para obter informacao acerca do mesmo em base 2:\n");
-    scanf("%d",&n);
-    printf("\nA representacao em binario do numero (%d) = ", n);
-    showBinary(n);
-    r = bitsUm(n);
-    printf("Existem (%d) bits a 1 na representacao deste numero em binario\n", r);
-    r = trailingZ(n);
-    printf("Existem (%d) bits a 0 no final da representacao deste numero em binario\n", r);
-    r = qDig(n);
-    printf("O numero (%d) tem (%d) digitos\n\n", n, r);
-    
-    printf("As strings: "); dumpV(s1); 
-    printf("e           "); dumpV(s2);
-    printf("concatenadas originam a string: ");
-    myStrcat(s1,s2); dumpV(s1);
-    
-    printf("\nA string s2 = "); dumpV(s2); 
-    printf("copiada para s1, transforma s1 em ");
-    myStrcpy(s1,s2); dumpV(s1);
-
-    r = myStrcmp(s1,s2);
-    printf("\nTestar igualdade das strings: "); dumpV(s1);
-    printf("e                             "); dumpV(s2);
-    printf("r = %d", r);
-
-    char ss1[MAX] = "s2 pertence a s1";
-    char ss2[MAX] = "pertence";
-    printf("\n\nstrstr de "); dumpV(ss2); 
-    printf("e         "); dumpV(ss1);
-    printf("e igual a {%s}",myStrstr(ss1,ss2));
-
-    printf("\n\nA string "); dumpV(ss1);
-    printf("invertida e igual a: ");
-    myStrrev(ss1); dumpV(ss1);
-
-    printf("\n\nA string "); dumpV(ss1);
-    printf("sem vogais e igual a: ");
-    myStrnoV(ss1); dumpV(ss1);
-
-    char s3[MAX] = "Liberdade, Igualdade Faternidade , test truncs";
-    printf("\n\nA string "); dumpV(s3);
-    printf("apos truncW(4) e: ");
-    myTruncW(s3, 4); dumpV(s3);
-
-    printf("\n\nO carater mais frequente em "); dumpV(s3);
-    printf("e {%c}", charMaisfreq(s3));
-
-    char s4[MAX] = "aabdccccaac";
-    printf("\n\nO comprimento da maior sub-string com caracteres iguais em "); dumpV(s4);
-    printf("e {%d}", iguaisConsecutivos(s4));
-
-    printf("\n\nO comprimento da maior sub-string com caracteres diferentes em "); dumpV(s4);
-    printf("e {%d}", difConsecutivos(s4));
-
+    /*
+    A acrescentar no futuro (Para teste das funcoes tem sido usado o codeboard);
+    */
+    return 0;
 }
