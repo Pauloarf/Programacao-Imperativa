@@ -20,18 +20,12 @@ int ordenado (int a[], int N){
 
 // Exercise 2
 void merge (int a[], int na, int b[], int nb, int r[]){
-    int j = 0, x = 0, y = 0;
-    while(x+y < na + nb){
-        if(a[x] > b[y]){
-            r[j] = b[y];
-            j++;
-            y++;
-        }
-        else{
-            r[j] = a[x];
-            j++;
-            x++;
-        }
+    int i = 0, j = 0, k = 0;
+    while(k < na + nb) {
+        if((a[i] < b[j] && i < na) || j >= nb)
+            r[k++] = a[i++];
+        else
+            r[k++] = b[j++];
     }
 }
 

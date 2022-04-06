@@ -8,7 +8,8 @@
 
 /* This function removes the s[n] char from the s array*/
 void rmChar(char s[], int n){
-    for(int i = n+1; s[i] != '\0'; i++, n++){
+    int i;
+    for(i = n+1; s[i]; i++, n++){
         s[n] = s[i];
     }
     s[n] = '\0';
@@ -183,6 +184,8 @@ char charMaisfreq(char s[]){
     return aux;
 }
 
+//*------------------------------------- Verificar solucoes -----------------------------------------------//
+
 // Exercise 15
 int iguaisConsecutivos(char s[]){
     int i, max = 0, aux = 1;
@@ -265,8 +268,112 @@ int contaVogais(char s[]){
     return ans;
 }
 
-// Exercise 22º
+// Exercise 22
+int contida(char a[], char b[]){
+    int i, j, ans;
+    for(i = 0; a[i]; i++){
+        ans = 0;
+        for(j = 0; b[j]; j++){
+            if(a[i] == b[j]) ans = 1;
+        }
+        if(!ans)break;
+    }
+    return ans;
+}
 
+// Exercise 23
+int palindroma(char s[]){
+    int i, j, ans = 1;
+    for(i = 0; s[i]; i++);
+    for(j = 0; j <= i/2; j++){
+        if(s[j] != s[--i]) return 0;
+    }
+    return 1;
+}
+
+// Exercise 24
+int remRep(char x[]){
+    int i, ans = 0;
+    for(i = 0; x[i];){
+        if(x[i-1] == x[i]) rmChar(x, i);
+        else ans++, i++;
+    }
+    return ans;
+}
+
+// Exercise 25
+int limpaEspacos(char t[]){
+    int i, ans = 0;
+    for(i = 0; t[i];){
+        if(t[i] == t[i+1] && t[i] == ' ') rmChar(t, i);
+        else i++, ans++;
+    }
+    return ans;
+}
+
+// Exercise 26
+void insere(int v[], int N, int x){
+    int i, j;
+    for(i = 0; i < N; i++){
+        if(v[i] > x){
+            for(j = N; j > i; j--){
+                v[j] = v[j-1];
+            }
+            v[i] = x;
+            break;
+        }
+        if(i == N -1) v[N] =x;
+    }
+}
+
+// Exercise 27
+void merge (int r [], int a[], int b[], int na, int nb) {
+    int i = 0, j = 0, k = 0;
+    while(k < na + nb) {
+        if((a[i] < b[j] && i < na) || j >= nb)
+            r[k++] = a[i++];
+        else
+            r[k++] = b[j++];
+    }
+}
+
+// Exercise 28
+int crescente(int a[], int i, int j){
+    while(i < j){
+        if(a[i] > a[i+1]) return 0;
+        i++;
+    }
+    return 1;
+}
+
+// Exercise 29
+int retiraNeg(int v[], int N){
+    int i, j;
+    for(i = 0; i < N;){
+        if(v[i] < 0){
+            for(j = i; j < N; j++) v[j] = v[j+1];
+            N--;
+        }
+        else i++;
+    }
+    return N;
+}
+
+// Exercise 30
+int menosFreq(int v[], int N){
+    int i, j, times, aux = 0, ans = v[0];
+    for(i = 0; i < N; i++){
+        times = 0;
+        for(j = 0; j < N; j++){
+            if(v[i] = v[j]) times++;
+        }
+        if(times > aux){
+            aux = times;
+            ans = v[i];
+        }
+    }
+    return ans;
+}
 
 int main(){
     /*
