@@ -74,8 +74,8 @@ int qDig(unsigned int n){
 // Exercise 7
 char *myStrcat(char s1[], char s2[]){
     int i, size;
-    for(size = 0; s1[size] != '\0'; size++);
-    for(i = 0; s2[i] != '\0'; i++, size++){
+    for(size = 0; s1[size]; size++);
+    for(i = 0; s2[i]; i++, size++){
         s1[size] = s2[i];
     }
     s1[size] = '\0';
@@ -108,11 +108,11 @@ int myStrcmp(char s1[], char s2[]){
 char *myStrstr(char s1[], char s2[]){
     int i;
     char a = 1;
-    for(i = 0; s1[i] != '\0'; i++){
+    for(i = 0; s1[i]; i++){
         if(s1[i] == s2[0]){
             int aux = i;
             int j;
-            for(j = 0; s2[j] != '\0'; j++, aux++){
+            for(j = 0; s2[j]; j++, aux++){
                 if(s1[aux] == s2[j]);
                 else break;
             }
@@ -130,7 +130,7 @@ char *myStrstr(char s1[], char s2[]){
 void myStrrev(char s[]){
     int i, j;
     char aux[MAX];
-    for(i = 0; s[i] != '\0'; i++){
+    for(i = 0; s[i]; i++){
         aux[i] = s[i];
     }
     i -= 1;
@@ -149,7 +149,7 @@ void myStrnoV(char s[]){
 }
 
 // Exercise 13
-void truncW (char t[], int n){
+void truncW(char t[], int n){
     int i, j = 0;
     for(i = 0; t[i] != '\0'; i++){
         if(n == 0)break;
@@ -530,7 +530,7 @@ void addTo(int N, int M, int a[N][M], int b[N][M]){
 int unionSet(int N, int v1[N], int v2[N], int r[N]){
     int i;
     for(i = 0; i < N; i++){
-        r[i] = v1[i] || v2[i];      //Duvida
+        r[i] = v1[i] || v2[i];
     }
     return 0;
 }
@@ -539,7 +539,7 @@ int unionSet(int N, int v1[N], int v2[N], int r[N]){
 int intersectSet(int N, int v1[N], int v2[N], int r[N]){
     int i;
     for(i = 0; i < N; i++){
-        r[i] = v1[i] && v2[i];      //Duvida
+        r[i] = v1[i] && v2[i];
     }
     return 0;
 }
@@ -548,7 +548,7 @@ int intersectSet(int N, int v1[N], int v2[N], int r[N]){
 int intersectMSet(int N, int v1[N], int v2[N], int r[N]){
     int i;
     for(i = 0; i < N; i++){
-        r[i] = v1[i] < v2[i] ? v1[i] : v2[i];  //Duvida
+        r[i] = v1[i] < v2[i] ? v1[i] : v2[i];
     }
     return 0;
 }
@@ -557,7 +557,7 @@ int intersectMSet(int N, int v1[N], int v2[N], int r[N]){
 int unionMSet(int N, int v1[N], int v2[N], int r[N]) {
     int i, len = 0;
     for(i = 0; i < N; i++) {
-        r[i] = v1[i] + v2[i];         //Duvida
+        r[i] = v1[i] + v2[i];
         len += r[i]; 
     }
     return len;
