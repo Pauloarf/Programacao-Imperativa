@@ -9,7 +9,7 @@ void SinitStack(SStack s){
 
 // Exercise 2
 int SisEmpty(SStack s){
-    return(s->sp == -1);
+    return (s->sp == -1); // Duvida
 }
 
 // Exercise 3
@@ -36,9 +36,11 @@ int Spop(SStack s, int *x){
 
 // Exercise 5
 int Stop(SStack s, int *x){
-    int r = 0, *x = 0;
-    *x = s->values[s->sp];
-    if(*x == 0) r = 1;
+    int r = 0;
+    if(s->sp != -1){
+        *x = s->values[s->sp];
+    }
+    else r = 1;
     return r;
 }
 

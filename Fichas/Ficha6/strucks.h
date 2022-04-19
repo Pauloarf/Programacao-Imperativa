@@ -1,4 +1,4 @@
-#define MAX 1000
+#define MAX 100
 
 typedef struct staticStack{
     int sp;
@@ -12,16 +12,15 @@ typedef struct staticQueue
     int values[MAX];
 }*SQueue;
 
-
 typedef struct dinStack{
     int size;       // Guarda o tamanho do array values
     int sp;
     int *values;
 }*DStack;
 
-typedef struct dinStack{
+typedef struct dinQueue{
     int size;       // Guarda o tamanho do array values
     int front;
     int length;
-    int *values
+    int *values;
 }*DQueue;
