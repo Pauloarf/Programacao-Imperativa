@@ -4,7 +4,7 @@
 
 // Exercise 1
 void SinitStack(SStack s){
-    s->sp = -1;
+    s->sp = -1;             // Nao inicializa
 }
 
 // Exercise 2
