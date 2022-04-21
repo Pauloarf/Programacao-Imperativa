@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "strucks.h"
+#include "structs.h"
 
 // Exercise 1
 void SinitStack(SStack s){
@@ -9,7 +9,7 @@ void SinitStack(SStack s){
 
 // Exercise 2
 int SisEmpty(SStack s){
-    return (s->sp == -1); // Duvida
+    return (s->sp == -1);
 }
 
 // Exercise 3

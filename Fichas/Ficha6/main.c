@@ -1,4 +1,4 @@
-#include "stack.c"
+#include "functions.c"
 
 int main(){
     SStack stack;
