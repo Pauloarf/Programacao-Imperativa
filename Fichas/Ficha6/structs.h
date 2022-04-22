@@ -1,8 +1,8 @@
 #define MAX 100
 
-typedef struct staticStack{
-    int sp;
-    int values[MAX];
+typedef struct staticStack {
+	int sp;
+	int values[MAX];
 }*SStack;
 
 typedef struct staticQueue

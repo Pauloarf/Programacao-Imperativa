@@ -2,9 +2,17 @@
 #include <stdlib.h>
 #include "structs.h"
 
+void printStack(SStack s){
+    printf("%d Items: ", ((s->sp)+1));
+    for(int i = s->sp; i >= 0; i--){
+        printf("%d ", s->values[i]);
+    }
+    putchar('\n');
+}
+
 // Exercise 1
 void SinitStack(SStack s){
-    s->sp = -1;             // Nao inicializa
+    s->sp = -1;      
 }
 
 // Exercise 2
