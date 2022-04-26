@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include "structs.h"
 
+/* This function prints the stack */
 void printStack(SStack s){
     printf("%d Items: ", ((s->sp)+1));
     for(int i = s->sp; i >= 0; i--){

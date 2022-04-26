@@ -142,7 +142,8 @@ void myStrrev(char s[]){
 
 // Exercise 12
 void myStrnoV(char s[]){
-    for(int i = 0; s[i] != '\0';){
+    int i;
+    for(i = 0; s[i] != '\0';){
         if(isVocal(s[i])) rmChar(s, i);
         else i++;
     }
@@ -183,8 +184,6 @@ char charMaisfreq(char s[]){
     }
     return aux;
 }
-
-//*------------------------------------- Verificar solucoes -----------------------------------------------//
 
 // Exercise 15
 int iguaisConsecutivos(char s[]){
@@ -570,6 +569,69 @@ int cardinalMSet(int N, int v[N]){
     return length;
 }
 
+/* This struct is necessary for the next exercises */
+typedef enum movimento {Norte, Oeste, Sul, Este} Movimento;
+typedef struct posicao{
+    int x, y;
+} Posicao;
+
+// Exercise 47
+Posicao posFinal (Posicao inicial, Movimento mov[], int N){
+    int i;
+    for(i = 0; i < N; i++){
+        if(mov[i] == Norte) inicial.y++;
+        if(mov[i] == Sul) inicial.y--;
+        if(mov[i] == Este) inicial.x++;
+        if(mov[i] == Oeste) inicial.x--;
+    }
+    return inicial;
+}
+
+// Exercise 48
+int caminho(Posicao inicial, Posicao final, Movimento mov[], int N){
+    int i;
+    for(i = 0; i < N; i++){
+        if(final.x > inicial.x)inicial.x++, mov[i] = Este;
+        else if(final.x < inicial.x)inicial.x--, mov[i] = Oeste;
+        else if(final.y > inicial.y)inicial.y++, mov[i] = Norte;
+        else if(final.y < inicial.y)inicial.y--, mov[i] = Sul;
+        else break;
+    }
+    if(inicial.x != final.x || inicial.y != final.y) return -1;
+    else return i;
+}
+
+/* This function returns the distance to the origin */
+int distOrigem(int x, int y){
+    return(abs(x - 0) + abs(y - 0));
+}
+
+// Exercise 49
+int maisCentral(Posicao pos[], int N){
+    int ind = 0, i;
+    int closest = distOrigem(pos[0].x, pos[0].y);
+    for(i = 0; i < N; i++){
+        if(distOrigem(pos[i].x, pos[i].y) < closest){
+            ind = i;
+            closest = distOrigem(pos[i].x, pos[i].y);
+        }
+    }
+    return ind;
+}
+
+/* This function returns the distance between to points */
+int distPontos(int x1, int y1, int x2, int y2){
+    return(abs(x2 - x1) + abs(y2 - y1));
+}
+
+// Exercise 50
+int vizinhos(Posicao p, Posicao pos[], int N){
+    int i, r = 0;
+    for(i = 0; i < N; i++){
+        if(distPontos(p.x, p.y, pos[i].x, pos[i].y) == 1) r += 1;
+    }
+    return r;
+}
 
 int main(){
     /*
