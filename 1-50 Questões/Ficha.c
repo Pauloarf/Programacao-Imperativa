@@ -107,7 +107,6 @@ int myStrcmp(char s1[], char s2[]){
 // Exercise 10
 char *myStrstr(char s1[], char s2[]){
     int i;
-    char a = 1;
     for(i = 0; s1[i]; i++){
         if(s1[i] == s2[0]){
             int aux = i;
@@ -282,7 +281,7 @@ int contida(char a[], char b[]){
 
 // Exercise 23
 int palindroma(char s[]){
-    int i, j, ans = 1;
+    int i, j;
     for(i = 0; s[i]; i++);
     for(j = 0; j <= i/2; j++){
         if(s[j] != s[--i]) return 0;
@@ -384,7 +383,7 @@ int maisFreq(int v[], int N){
     for(i = 0; i < N; i++){
         times = 0;
         for(j = 0; j < N; j++){
-            if(v[i] = v[j]) times++;
+            if(v[i] == v[j]) times++;
         }
         if(times > aux){
             aux = times;
@@ -459,9 +458,8 @@ int comunsOrd (int a[], int na, int b[], int nb){
 
 // Exercise 36
 int comuns(int a[], int na, int b[], int nb){
-    int i, j, pertence, ans = 0;
+    int i, j, ans = 0;
     for(i = 0; i < na; i++){
-        pertence = 0;
         for(j = 0; j < nb; j++){
             if(a[i] == b[j]){
                 ans++;
@@ -634,7 +632,7 @@ int vizinhos(Posicao p, Posicao pos[], int N){
 }
 
 int main(){
-    /*
+    int a = 5+5;/*
     A acrescentar no futuro (Para teste das funcoes tem sido usado o codeboard);
     */
     return 0;
