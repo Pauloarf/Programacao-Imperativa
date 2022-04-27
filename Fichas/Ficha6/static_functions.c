@@ -53,22 +53,48 @@ int Stop(SStack s, int *x){
     return r;
 }
 
+// Exercise 6
 void SinitQueue(SQueue q){
-
+    q->length = 0;
 }
 
+// Exercise 7
 int SisEmptyQ(SQueue q){
-
+    return (q->length == 0);
 }
 
+// Exercise 8
 int Senqueue(SQueue q, int x){
-
+    int r = 0;
+    if(q->length == MAX) r = 1;
+    else {
+        q->values[q->length] = x;
+        q->front = x;
+        q->length++;
+    }
+    return r;
 }
 
+// Exercise 9
 int Sdequeue(SQueue q, int *x){
-    
+    int r = 0;
+    if(q->length != 0){
+        *x = q->values[q->length];
+        for(int i = 0; i < q->length; i++){
+            q->values[i] = q->values[i+1];
+        }
+        q->length--;
+    }
+    else r = 1; 
+    return r;
 }
 
+// Exercise 10
 int Sfront(SQueue q, int *x){
-
+    int r = 0;
+    if(q->length != 0){
+        *x = q->values[0];
+    }
+    else r = 1;
+    return r;
 }
