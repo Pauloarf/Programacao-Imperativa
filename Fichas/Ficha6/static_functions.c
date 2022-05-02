@@ -5,8 +5,17 @@
 /* This function prints the stack */
 void printStack(SStack s){
     printf("%d Items: ", ((s->sp)+1));
-    for(int i = s->sp; i >= 0; i--){
+    for(int i = 0; i <= s->sp; i++){
         printf("%d ", s->values[i]);
+    }
+    putchar('\n');
+}
+
+/* This function prints the queue */
+void printQueue(SQueue q){
+    printf("%d Items: ", (q->length));
+    for(int i = 0; i < q->length; i++){
+        printf("%d ", q->values[i]);
     }
     putchar('\n');
 }
@@ -79,7 +88,7 @@ int Senqueue(SQueue q, int x){
 int Sdequeue(SQueue q, int *x){
     int r = 0;
     if(q->length != 0){
-        *x = q->values[q->length];
+        *x = q->values[0];
         for(int i = 0; i < q->length; i++){
             q->values[i] = q->values[i+1];
         }

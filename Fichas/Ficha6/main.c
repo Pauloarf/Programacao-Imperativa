@@ -4,9 +4,13 @@
 int main(){
     struct staticStack s1;
     SStack stack = &s1;
+    struct dinStack ds1;
+    DStack Dstack = &ds1;
     
     struct staticQueue q1;
     SQueue queue = &q1;
+    struct dinQueue dq1;
+    DQueue Dqueue = &dq1;
     
     int a, opcao;
     while(opcao < 1 || opcao > 4){
@@ -35,10 +39,12 @@ int main(){
         Stop(stack, &a);
         printf("O numero guardado em 'a' foi: %d\n", a);
         printStack(stack);
-        printf("---- Done Testing static stacks ----\n");
+        printf("---- Done testing static stacks ----\n");
         break;
     case 2:
-        printf("Nothing yet");
+        printf("---- Testing dinamic stacks ----\n");
+        
+        printf("---- Done testing dinamic stacks ----\n");
         break;
     case 3:
         printf("---- Testing static queues ----\n");
@@ -48,7 +54,14 @@ int main(){
         for(int i = 0; i < 10; i++){
             if(Senqueue(queue, i) != 0) printf("ERROR pushing %d\n", i);
         }
-        printf("---- Done Testing static queues ----\n");
+        printQueue(queue);
+        Sdequeue(queue, &a);
+        printf("O numero retirado foi: %d\n", a);
+        printQueue(queue);
+        Sfront(queue, &a);
+        printf("O numero guardado em 'a' foi: %d\n", a);
+        printQueue(queue);
+        printf("---- Done testing static queues ----\n");
         break;
     case 4:
         printf("Nothing yet");
