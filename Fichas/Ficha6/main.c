@@ -43,7 +43,19 @@ int main(){
         break;
     case 2:
         printf("---- Testing dinamic stacks ----\n");
-        
+        DinitStack(Dstack);
+        if(Dstack->sp == 0 && Dstack->size == 1) printf("DStack initialised\n");
+        else printf("DStack not initialised\n");
+        for(int i = 0; i<100; i += 5){
+            if(Dpush(Dstack, i) != 0) printf("ERROR pushing %d\n", i);
+        }
+        ShowDStack(Dstack);
+        Dpop(Dstack, &a);
+        printf("O numero retirado foi: %d\n", a);
+        ShowDStack(Dstack);
+        Dtop(Dstack, &a);
+        printf("O numero guardado em 'a' foi: %d\n", a);
+        ShowDStack(Dstack);
         printf("---- Done testing dinamic stacks ----\n");
         break;
     case 3:
@@ -64,7 +76,21 @@ int main(){
         printf("---- Done testing static queues ----\n");
         break;
     case 4:
-        printf("Nothing yet");
+        printf("---- Testing dinamic queues ----\n");
+        DinitQueue(Dqueue);
+        if(Dqueue->length == 0 && Dqueue->size == 1) printf("DQueue initialised\n");
+        else printf("DQueue not initialised\n");
+        for(int i = 0; i<100; i += 5){
+            if(Denqueue(Dqueue, i) != 0) printf("ERROR pushing %d\n", i);
+        }
+        ShowDQueue(Dqueue);
+        Ddequeue(Dqueue, &a);
+        printf("O numero retirado foi: %d\n", a);
+        ShowDQueue(Dqueue);
+        Dfront(Dqueue, &a);
+        printf("O numero guardado em 'a' foi: %d\n", a);
+        ShowDQueue(Dqueue);
+        printf("---- Done testing dinamic queues ----\n");
         break;
     }
     printf("\n");

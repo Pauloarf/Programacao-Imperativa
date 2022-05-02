@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "structs.h"
+#include "Sstructs.h"
 
 /* This function prints the stack */
 void printStack(SStack s){
@@ -78,7 +78,6 @@ int Senqueue(SQueue q, int x){
     if(q->length == MAX) r = 1;
     else {
         q->values[q->length] = x;
-        q->front = x;
         q->length++;
     }
     return r;
@@ -93,6 +92,7 @@ int Sdequeue(SQueue q, int *x){
             q->values[i] = q->values[i+1];
         }
         q->length--;
+        q->front = q->values[0];
     }
     else r = 1; 
     return r;
