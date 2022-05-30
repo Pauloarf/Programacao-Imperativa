@@ -11,11 +11,19 @@ void libertaLista(Palavras l){
     } 
 }
 
+Lista quantasP(Palavras l){
+
+}
+
 void listaPal(Palavras l){
     Palavras aux;
     for(aux = l; aux != NULL; aux = aux->prox){
         printf("Palavra: %s, occorencias: %d\n", aux->palavra, aux->ocorr);
     }
+}
+
+char *ultima (Palavras l){
+
 }
 
 Palavras acrescentaInicio(Palavras l, char *p){
@@ -25,4 +33,16 @@ Palavras acrescentaInicio(Palavras l, char *p){
     nova->ocorr = 1;
     nova->prox = l;
     return nova;
+}
+
+Palavras acrescentaFim(Palavras l, char *p){
+
+}
+
+Palavras acrescenta(Palavras l, char *p){
+
+}
+
+struct celula *maisFreq(Palavras l){
+    
 }
